@@ -1,0 +1,25 @@
+{{#> base }}
+    <h1>Messages</h1>
+    <table width="100%" border="1">
+        <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>From</th>
+            <th>To</th>
+            <th></th>
+        </tr>
+        </thead>
+        {{#each messages}}
+            <tr id="message-{{@index}}">
+                <td>{{ this.timestamp }}</td>
+                <td>{{ this.from }}</td>
+                <td>{{ this.to }}</td>
+                <td>
+                    <form action="/details/{{@index}}" method="get">
+                        <button type="submit">See details</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+{{/base}}
