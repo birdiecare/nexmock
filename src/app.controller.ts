@@ -24,10 +24,10 @@ export class AppController {
   @Render('list')
   async list() {
     return {
-      messages: this.messages,
+      messages: this.messages.reverse(),
     };
   }
-  
+
   @UseGuards(new BasicAuthStrategy())
   @Get('details/:messageId')
   @Render('details')
@@ -54,8 +54,8 @@ export class AppController {
           'to': query.to,
           'message-id': Math.round(Math.random() * 10000),
           'status': '0',
-        }
-      ]
-    }
+        },
+      ],
+    };
   }
 }
