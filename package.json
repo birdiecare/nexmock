@@ -33,7 +33,7 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@nestjs/testing": "^6.0.0",
+    "@nestjs/testing": "^6.2.4",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
     "@types/moment": "^2.13.0",
