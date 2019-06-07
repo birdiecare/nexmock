@@ -44,7 +44,7 @@ export class AppController {
     @Query() query: SmsRequestQuery,
   ) {
     const message = new SmsMessage(
-      query.to, query.from, query.text, moment().format());
+      query.to, query.from, query.text, moment().format('MMMM Do YYYY, h:mm:ss a'));
     this.messages.push(message);
 
     return {
