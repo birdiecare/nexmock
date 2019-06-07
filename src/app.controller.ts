@@ -24,7 +24,7 @@ export class AppController {
   @Render('list')
   async list() {
     return {
-      messages: this.messages.reverse(),
+      messages: this.messages.sort((msgA, msgB) => msgB.timestamp.localeCompare(msgA.timestamp)),
     };
   }
 
