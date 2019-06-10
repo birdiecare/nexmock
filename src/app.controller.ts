@@ -11,6 +11,13 @@ interface SmsRequestQuery {
   text?: string;
 }
 
+function parseMessage(message: SmsMessage) {
+  return  {
+    ...message,
+    timestamp: message.timestamp.fromNow(),
+  };
+}
+
 @Controller()
 export class AppController {
   messages: SmsMessage[];
@@ -24,7 +31,9 @@ export class AppController {
   @Render('list')
   async list() {
     return {
-      messages: this.messages.sort((msgA, msgB) => msgB.timestamp.valueOf() - msgA.timestamp.valueOf()),
+      messages: this.messages
+          .sort((msgA, msgB) => msgB.timestamp.valueOf() - msgA.timestamp.valueOf())
+          .map(parseMessage),
     };
   }
 
@@ -35,10 +44,7 @@ export class AppController {
     @Param('messageId') messageId: string,
   ) {
     return {
-      message: {
-        ...this.messages[JSON.parse(messageId)],
-        timestamp: this.messages[JSON.parse(messageId)].timestamp.fromNow(),
-      },
+      message: this.messages[JSON.parse(messageId)],
     };
   }
 
