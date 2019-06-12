@@ -6,7 +6,8 @@
             <th>Timestamp</th>
             <th>From</th>
             <th>To</th>
-            <th></th>
+            <th>Preview</th>
+            <th>Message</th>
         </tr>
         </thead>
         {{#each messages}}
@@ -14,6 +15,7 @@
                 <td>{{ this.timestamp }}</td>
                 <td>{{ this.from }}</td>
                 <td>{{ this.to }}</td>
+                <td>{{ this.text }}</td>
                 <td>
                     <form action="/details/{{@index}}" method="get">
                         <button type="submit">See details</button>
