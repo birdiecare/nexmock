@@ -1,4 +1,5 @@
-import {Moment} from 'moment';
+import { Moment } from 'moment';
+import moment = require('moment');
 
 export default class SmsMessage {
     timestamp: Moment;

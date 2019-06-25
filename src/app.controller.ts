@@ -2,6 +2,7 @@ import { Controller, Post, Query, Get, Render, Param, UseGuards } from '@nestjs/
 import moment = require('moment');
 import SmsMessage from './models/message';
 import { BasicAuthStrategy } from './security/basicGuard';
+import { PricingService } from './pricing.service';
 
 interface SmsRequestQuery {
   api_key: string;
@@ -21,19 +22,26 @@ function parseMessage(message: SmsMessage) {
 @Controller()
 export class AppController {
   messages: SmsMessage[];
+  startTime: moment.Moment;
 
-  constructor() {
+  constructor(
+    private readonly pricingService: PricingService,
+  ) {
     this.messages = [];
+    this.startTime = moment();
   }
 
   @UseGuards(new BasicAuthStrategy())
   @Get('list')
   @Render('list')
   async list() {
+    const amountSaved = this.messages.reduce((sum, message) => sum + this.pricingService.getPrice(message.to), 0.0).toFixed(2);
     return {
       messages: this.messages
           .sort((msgA, msgB) => msgB.timestamp.valueOf() - msgA.timestamp.valueOf())
           .map(parseMessage),
+      amountSaved,
+      restartedSince: this.startTime.fromNow(),
     };
   }
 
