@@ -44,13 +44,13 @@ export class BasicAuthStrategy implements CanActivate {
       return requestAuthentication(response);
     }
 
-    const username = credentials[0];
-    const password = credentials[1];
-    if (!username || !password) {
+    const providedUsername = credentials[0];
+    const providedPassword = credentials[1];
+    if (!providedUsername || !providedPassword) {
       return requestAuthentication(response);
     }
 
-    if (username === username && password === password) {
+    if (providedUsername === username && providedPassword === password) {
       return true;
     }
 
