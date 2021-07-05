@@ -1,28 +1,34 @@
 {{#> base }}
-    <h1>Restarted {{ restartedSince }}. Amount saved since: {{ amountSaved }}€</h1>
-    <h1>Messages</h1>
-    <table width="100%" border="1">
-        <thead>
-        <tr>
-            <th>Timestamp</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Preview</th>
-            <th>Message</th>
-        </tr>
-        </thead>
-        {{#each messages}}
-            <tr id="message-{{@index}}">
-                <td>{{ this.timestamp }}</td>
-                <td>{{ this.from }}</td>
-                <td>{{ this.to }}</td>
-                <td>{{ this.text }}</td>
-                <td>
-                    <form action="/details/{{@index}}" method="get">
-                        <button type="submit">See details</button>
-                    </form>
-                </td>
+    <head>
+        <title>Nexmock</title>
+        <link rel="icon" href="https://s3.amazonaws.com/gdsgiffile.gamedeveloperstudio.com/Spinningcoin--1q4q6x1q9s4t6y9p50.gif" type="image/gif">
+    </head>
+    <body>
+        <h1>Restarted {{ restartedSince }}. Amount saved since: {{ amountSaved }}€</h1>
+        <h1>Messages</h1>
+        <table width="100%" border="1">
+            <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Preview</th>
+                <th>Message</th>
             </tr>
-        {{/each}}
-    </table>
+            </thead>
+            {{#each messages}}
+                <tr id="message-{{@index}}">
+                    <td>{{ this.timestamp }}</td>
+                    <td>{{ this.from }}</td>
+                    <td>{{ this.to }}</td>
+                    <td>{{ this.text }}</td>
+                    <td>
+                        <form action="/details/{{@index}}" method="get">
+                            <button type="submit">See details</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </body>
 {{/base}}
