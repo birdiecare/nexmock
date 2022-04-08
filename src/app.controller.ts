@@ -1,10 +1,10 @@
-import { Controller, Post, Query, Get, Render, Param, UseGuards } from '@nestjs/common';
+import {Controller, Post, Get, Render, Param, UseGuards, Body} from '@nestjs/common';
 import moment = require('moment');
 import SmsMessage from './models/message';
 import { BasicAuthStrategy } from './security/basicGuard';
 import { PricingService } from './pricing.service';
 
-interface SmsRequestQuery {
+interface SmsRequestBody {
   api_key: string;
   api_secret?: string;
   from: string;
@@ -58,17 +58,17 @@ export class AppController {
 
   @Post('/sms/json')
   sensSms(
-    @Query() query: SmsRequestQuery,
+    @Body() body: SmsRequestBody,
   ) {
     const message = new SmsMessage(
-      query.to, query.from, query.text, moment());
+        body.to, body.from, body.text, moment());
     this.messages.push(message);
 
     return {
       'message-count': 1,
       'messages': [
         {
-          'to': query.to,
+          'to': body.to,
           'message-id': Math.round(Math.random() * 10000),
           'status': '0',
         },
