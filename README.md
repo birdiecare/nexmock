@@ -22,8 +22,6 @@ By default, Nexmock will run on port `3000`. However, you can override this by s
 
 Once it's running, you can access the webview at `http://localhost:<PORT>/list`.
 
-A deployed version of Nexmock can be found here: [https://birdie-nexmock.herokuapp.com/](https://birdie-nexmock.herokuapp.com/list)
-
 # Contributing
 
 - Create a new branch from the `master` branch
