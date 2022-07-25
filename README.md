@@ -8,4 +8,23 @@ Nexmock provides a Heroku web server to receive your SMS messages, which allows 
 
 ## Documentation
 
-https://www.notion.so/birdie/Nexmock-8273ea4189fa4bed97f92fa3ad4738db
+# Setting up
+
+All that's needed to get set up is to install the dependencies:
+
+`npm install`
+
+# How to use
+
+To start development on Nexmock, simply run `npm run start:dev`. This will launch a `nodemon` process.
+
+By default, Nexmock will run on port `3000`. However, you can override this by specifying the `PORT` environment variable, like so: `PORT=5151 npm run start:dev`.
+
+Once it's running, you can access the webview at `http://localhost:<PORT>/list`.
+
+A deployed version of Nexmock can be found here: [https://birdie-nexmock.herokuapp.com/](https://birdie-nexmock.herokuapp.com/list)
+
+# Contributing
+
+- Create a new branch from the `master` branch
+- Create a PR with your desired changes
