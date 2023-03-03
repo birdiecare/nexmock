@@ -23,7 +23,7 @@
     "@nestjs/core": "^6.0.0",
     "@nestjs/passport": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
-    "hbs": "^4.0.4",
+    "hbs": "^4.2.0",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
