@@ -23,6 +23,8 @@
     "@nestjs/core": "^6.0.0",
     "@nestjs/passport": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
+    "@types/express-handlebars": "^5.3.1",
+    "express-handlebars": "^5.3.5",
     "hbs": "^4.0.4",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
