@@ -19,13 +19,13 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^6.0.0",
-    "@nestjs/core": "^6.0.0",
-    "@nestjs/passport": "^6.0.0",
-    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/core": "^9.4.3",
+    "@nestjs/passport": "^9.0.3",
+    "@nestjs/platform-express": "^9.4.3",
     "@types/express-handlebars": "^5.3.1",
     "express-handlebars": "^5.3.5",
-    "hbs": "^4.0.4",
+    "hbs": "^4.2.1",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
@@ -35,7 +35,7 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@nestjs/testing": "^6.0.0",
+    "@nestjs/testing": "^9.4.3",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
     "@types/moment": "^2.13.0",
@@ -64,5 +64,8 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "overrides": {
+    "minimist@<=0.2.4": "0.2.4"
   }
 }
