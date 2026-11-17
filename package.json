@@ -25,7 +25,7 @@
     "@nestjs/platform-express": "^9.4.3",
     "@types/express-handlebars": "^5.3.1",
     "express-handlebars": "^5.3.5",
-    "hbs": "^4.2.1",
+    "hbs": "^4.4.0",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
